@@ -14,8 +14,8 @@
   services.sanoid = {
     enable = true;
     templates.backup = {
-      hourly = 12;
-      daily = 30;
+      hourly = 3;
+      daily = 3;
       monthly = 3;
       autosnap = true;
       autoprune = true;
@@ -71,6 +71,15 @@
       randomEncryption = true;
     }
   ];
+
+  services.smartd = {
+    enable = true;
+    devices = [
+      {
+        device = "/dev/disk/by-id/nvme-SKHynix_HFS001TEM9X169N_5SE4N54171170526B";
+      }
+    ];
+  };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

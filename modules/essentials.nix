@@ -46,6 +46,7 @@
     btop
     xed-editor
     feh
+    xviewer
     xreader
     libreoffice
     transmission_4-gtk

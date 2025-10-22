@@ -18,7 +18,6 @@ input {
         dwtp
         drag true
         natural-scroll
-        disabled-on-external-mouse
         tap-button-map "left-right-middle"
     }
     mouse {

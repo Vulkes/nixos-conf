@@ -32,7 +32,6 @@ in {
     ../../modules/gaming.nix
     ../../modules/desktop-env.nix
     ../../modules/security.nix
-    ../../modules/virtualisation.nix
     ../../modules/themeing.nix
   ];
 
