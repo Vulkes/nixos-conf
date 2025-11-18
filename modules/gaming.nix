@@ -6,7 +6,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     mangohud
-    protonup
+    protonup-ng
     heroic
 
     prismlauncher
