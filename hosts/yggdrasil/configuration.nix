@@ -7,7 +7,22 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  zfsCompatibleKernelPackages =
+    lib.filterAttrs (
+      name: kernelPackages:
+        (builtins.match "linux_[0-9]+_[0-9]+" name)
+        != null
+        && (builtins.tryEval kernelPackages).success
+        && (!kernelPackages.${config.boot.zfs.package.kernelModuleAttribute}.meta.broken)
+    )
+    pkgs.linuxKernel.packages;
+  latestKernelPackage = lib.last (
+    lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
+      builtins.attrValues zfsCompatibleKernelPackages
+    )
+  );
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -35,9 +50,13 @@
     ];
   };
 
-  networking.hostName = "yggdrasil"; #
-  networking.hostId = "78b55724";
-  networking.networkmanager.enable = true;
+  boot.kernelPackages = latestKernelPackage;
+
+  networking = {
+    hostName = "yggdrasil"; #
+    hostId = "78b55724";
+    networkmanager.enable = true;
+  };
   time.timeZone = "Asia/Calcutta";
 
   networking.wg-quick.interfaces.wg0.configFile = "/home/yeff/.wireguard/wg0.conf";
@@ -49,9 +68,7 @@
 
   # home-manager = {
   #   extraSpecialArgs = {inherit inputs;};
-  #   users = {
-  #     "yeff" = import ./home.nix;
-  #   };
+  #   users = { "yeff" = import ./home.nix; };
   # };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

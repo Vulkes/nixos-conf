@@ -14,9 +14,9 @@
   services.sanoid = {
     enable = true;
     templates.backup = {
-      hourly = 12;
-      daily = 30;
-      monthly = 3;
+      hourly = 3;
+      daily = 3;
+      monthly = 2;
       autosnap = true;
       autoprune = true;
     };

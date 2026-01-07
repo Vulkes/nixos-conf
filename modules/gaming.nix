@@ -10,6 +10,7 @@
     heroic
 
     prismlauncher
+    vintagestory
   ];
 
   programs.gamemode.enable = true;

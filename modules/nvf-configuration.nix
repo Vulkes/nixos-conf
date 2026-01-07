@@ -24,12 +24,6 @@
           providers.wl-copy.enable = true;
         };
 
-        # theme = {
-        #   enable = true;
-        #   name = "oxocarbon";
-        #   style = "dark";
-        # };
-
         viAlias = false;
         vimAlias = false;
 
@@ -70,6 +64,7 @@
         languages = {
           enableExtraDiagnostics = true;
           enableFormat = true;
+          enableDAP = true;
 
           nix = {
             enable = true;
@@ -77,8 +72,10 @@
 
           rust = {
             enable = true;
-            crates.enable = true;
             treesitter.enable = true;
+            extensions.crates-nvim = {
+              enable = true;
+            };
           };
 
           markdown = {

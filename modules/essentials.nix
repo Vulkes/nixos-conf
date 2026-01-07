@@ -13,6 +13,7 @@
   services.udisks2.enable = true;
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+  services.fwupd.enable = true;
 
   programs.firefox.enable = true;
 
@@ -46,6 +47,7 @@
     btop
     xed-editor
     feh
+    dust
     xviewer
     xreader
     libreoffice

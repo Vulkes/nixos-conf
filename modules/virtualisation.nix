@@ -5,23 +5,24 @@
   inputs,
   ...
 }: {
-  programs.virt-manager.enable = true;
-  users.groups.libvirtd.members = ["yeff"];
-  virtualisation.libvirtd.enable = true;
-  virtualisation.libvirtd.qemu.vhostUserPackages = with pkgs; [virtiofsd];
-  virtualisation.spiceUSBRedirection.enable = true;
-  virtualisation.docker = {
-    enable = true;
-  };
-  users.users.yeff.extraGroups = ["docker"];
-
   specialisation = {
     passthrough.configuration = {
-      virtualisation.libvirtd.qemu = {
-        package = pkgs.qemu_kvm;
-        runAsRoot = true;
-        swtpm.enable = true;
+      programs.virt-manager.enable = true;
+      users.groups.libvirtd.members = ["yeff"];
+
+      virtualisation = {
+        libvirtd = {
+          enable = true;
+          qemu = {
+            package = pkgs.qemu_kvm;
+            runAsRoot = true;
+            swtpm.enable = true;
+            vhostUserPackages = with pkgs; [virtiofsd];
+          };
+        };
+        spiceUSBRedirection.enable = true;
       };
+
       boot.initrd.kernelModules = [
         "vfio_pci"
         "vfio"
@@ -34,4 +35,9 @@
       ];
     };
   };
+
+  virtualisation.docker = {
+    enable = true;
+  };
+  users.users.yeff.extraGroups = ["docker"];
 }
