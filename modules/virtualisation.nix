@@ -7,6 +7,8 @@
 }: {
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = ["yeff"];
+  users.users.yeff.extraGroups = ["docker"];
+
   virtualisation = {
     libvirtd = {
       enable = true;
@@ -20,17 +22,20 @@
     spiceUSBRedirection.enable = true;
   };
 
+  boot.initrd.kernelModules = [
+    "vfio_pci"
+    "vfio"
+    "vfio_iommu_type1"
+    "radeon"
+  ];
+
+  imports = [./virtualisation-default.nix];
+
   specialisation = {
     passthrough.configuration = {
-      boot.initrd.kernelModules = [
-        "vfio_pci"
-        "vfio"
-        "vfio_iommu_type1"
-        "radeon"
-      ];
       boot.kernelParams = [
         "amd_iommu=on"
-        "vfio-pci.ids=1002:73df,1002:ab28"
+        "vfio-pci.ids=1002:7550,1002:ab40"
       ];
     };
   };
@@ -38,5 +43,4 @@
   virtualisation.docker = {
     enable = true;
   };
-  users.users.yeff.extraGroups = ["docker"];
 }

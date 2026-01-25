@@ -15,9 +15,6 @@
     environment.systemPackages = with pkgs; [
       alacritty
       fuzzel
-      swaylock
-      waybar
-      swaybg
       xwayland-satellite
     ];
   };

@@ -15,15 +15,19 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {
+  outputs = inputs @ {
     self,
     nixpkgs,
     home-manager,
     stylix,
     ...
-  } @ inputs: {
+  }: {
     nixosConfigurations = {
       yggdrasil = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
@@ -31,14 +35,7 @@
           inputs.nvf.nixosModules.default
           stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "bak";
-              users.yeff = import ./hosts/yggdrasil/home.nix;
-            };
-          }
+          hosts/yggdrasil/home.nix
           hosts/yggdrasil/configuration.nix
         ];
       };

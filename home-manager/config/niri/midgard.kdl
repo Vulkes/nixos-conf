@@ -31,21 +31,13 @@ input {
     focus-follows-mouse max-scroll-amount="90%"
 }
 
-output "eDP-1" {
-    mode "1920x1200@60"
-
-    scale 1
-
-    transform "normal"
+layer-rule {
+  match namespace="^noctalia-wallpaper*"
+  place-within-backdrop true
 }
 
 layout {
     gaps 10
-
-    // - "on-overflow", focusing a column will center it if it doesn't fit
-    //   together with the previously focused column.
-
-    // center-focused-column "on-overflow"
 
     preset-column-widths {
         proportion 0.33333
@@ -64,9 +56,16 @@ layout {
     border {
         off
     }
+  background-color "transparent"
 }
 
-spawn-at-startup "waybar"
+overview {
+  workspace-shadow {
+    off
+  }
+}
+
+spawn-at-startup "noctalia-shell"
 
 environment {
     DISPLAY ":0"

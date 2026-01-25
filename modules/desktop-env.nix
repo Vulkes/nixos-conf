@@ -20,7 +20,6 @@
 
   environment.systemPackages = with pkgs; [
     libnotify
-    dunst
     bibata-cursors
     fastfetch
     playerctl

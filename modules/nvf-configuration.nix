@@ -36,7 +36,6 @@
         telescope.enable = true;
         treesitter = {
           enable = true;
-          indent.disable = ["nix"];
         };
 
         autocomplete.nvim-cmp = {
@@ -94,6 +93,10 @@
           };
 
           lua = {
+            enable = true;
+          };
+
+          ts = {
             enable = true;
           };
         };

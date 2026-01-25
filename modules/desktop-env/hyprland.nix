@@ -13,7 +13,6 @@
       alacritty
       rio
       fuzzel
-      waybar
       psmisc
       hyprpaper
       hyprshot
