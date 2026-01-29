@@ -29,8 +29,6 @@
     "radeon"
   ];
 
-  imports = [./virtualisation-default.nix];
-
   specialisation = {
     passthrough.configuration = {
       boot.kernelParams = [

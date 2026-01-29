@@ -33,6 +33,7 @@ in {
     ../../modules/desktop-env.nix
     ../../modules/emulation.nix
     ../../modules/ai.nix
+    ../../modules/virtualisation-default.nix
     ../../modules/virtualisation.nix
     ../../modules/themeing.nix
   ];
