@@ -19,7 +19,6 @@
       imports = [
         inputs.noctalia.homeModules.default
         ../../home-manager/alacritty.nix
-        ../../home-manager/dunst.nix
         ../../home-manager/udisk.nix
         ../../home-manager/cava.nix
         ../../home-manager/yggdrasil.nix
