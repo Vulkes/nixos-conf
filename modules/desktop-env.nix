@@ -19,6 +19,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    rio
+    alacritty
     libnotify
     bibata-cursors
     fastfetch

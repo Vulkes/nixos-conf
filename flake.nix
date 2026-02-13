@@ -46,14 +46,7 @@
           inputs.nvf.nixosModules.default
           stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "bak";
-              users.yeff = import ./hosts/midgard/home.nix;
-            };
-          }
+          hosts/midgard/home.nix
           hosts/midgard/configuration.nix
         ];
       };

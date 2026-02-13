@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  home-manager,
   inputs,
   ...
 }: {
@@ -15,6 +14,7 @@
       home.username = "yeff";
       home.homeDirectory = "/home/yeff";
       xdg.userDirs.enable = true;
+      xdg.userDirs.createDirectories = true;
 
       imports = [
         inputs.noctalia.homeModules.default

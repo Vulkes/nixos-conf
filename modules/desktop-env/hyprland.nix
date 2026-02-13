@@ -10,11 +10,7 @@
     programs.hyprland.enable = true;
 
     environment.systemPackages = with pkgs; [
-      alacritty
-      rio
-      fuzzel
       psmisc
-      hyprpaper
       hyprshot
       hyprpolkitagent
     ];
