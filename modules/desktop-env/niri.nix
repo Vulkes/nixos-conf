@@ -11,5 +11,8 @@
     services.gnome.gnome-keyring.enable = true;
 
     programs.niri.enable = true;
+    environment.systemPackages = with pkgs; [
+      xwayland-satellite
+    ];
   };
 }

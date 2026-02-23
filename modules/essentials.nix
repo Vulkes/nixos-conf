@@ -36,6 +36,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    tlrc
     vim
     wget
     nemo-with-extensions

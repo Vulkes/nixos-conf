@@ -84,7 +84,7 @@ in {
     nvtopPackages.amd
   ];
 
-  desktop.hyprland.enable = true;
+  desktop.hyprland.enable = false;
   desktop.niri.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
