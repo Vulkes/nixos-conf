@@ -4,16 +4,6 @@
   pkgs,
   ...
 }: {
-  programs.bash = {
-    interactiveShellInit = ''
-      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-      then
-        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-        exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-      fi
-    '';
-  };
-
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -31,11 +21,30 @@
     };
   };
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 7d --keep 3";
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
   environment.systemPackages = with pkgs; [
     eza
     fzf
     fishPlugins.done
     fishPlugins.fzf
-    fishPlugins.tide
+    tlrc
+
+    wget
+    ffmpeg
+    dust
+    tree
+
+    vim
+    btop
   ];
 }

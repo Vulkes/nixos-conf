@@ -6,13 +6,11 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      mouse = {
-        bindings = [
-          {
-            mouse = "Middle";
-            action = "PasteSelection";
-          }
-        ];
+      terminal = {
+        shell = "${pkgs.fish}/bin/fish";
+      };
+      selection = {
+        save_to_clipboard = true;
       };
     };
   };

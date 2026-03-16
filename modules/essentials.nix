@@ -24,37 +24,18 @@
 
   services.flatpak.enable = true;
 
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 7d --keep 3";
-  };
-
-  programs.zoxide = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
   environment.systemPackages = with pkgs; [
-    tlrc
-    vim
-    wget
     nemo-with-extensions
     nemo-fileroller
     nemo-preview
     file-roller
     mpv
-    ffmpeg
-    btop
     xed-editor
-    feh
-    dust
     xviewer
     xreader
     libreoffice
     transmission_4-gtk
     gparted
-    tree
     spotify-player
     spotify
     vesktop

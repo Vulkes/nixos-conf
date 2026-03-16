@@ -4,6 +4,11 @@
   pkgs,
   ...
 }: {
+  environment.systemPackages = with pkgs; [
+    solaar
+    logitech-udev-rules
+  ];
+
   services.keyd = {
     enable = true;
     keyboards = {
