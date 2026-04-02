@@ -2,12 +2,22 @@
   config,
   lib,
   pkgs,
+  stylix,
   ...
 }: {
+  stylix.targets.nvf.enable = false;
+
   programs.nvf = {
     enable = true;
     settings = {
       vim = {
+        theme = {
+          enable = true;
+          name = "catppuccin";
+          style = "mocha";
+          transparent = true;
+        };
+
         augroups = [{name = "UserSetup";}];
         autocmds = [
           {
