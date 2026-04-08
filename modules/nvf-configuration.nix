@@ -109,6 +109,15 @@
           ts = {
             enable = true;
           };
+
+          python = {
+            enable = true;
+            format = {
+              enable = true;
+              type = ["ruff"];
+            };
+            lsp.servers = ["ty"];
+          };
         };
       };
     };

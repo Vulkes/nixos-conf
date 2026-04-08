@@ -5,6 +5,8 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    steam-tui
+
     mangohud
     protonup-ng
     heroic
@@ -18,10 +20,14 @@
       ];
     })
     vintagestory
+
+    lumafly
   ];
 
-  programs.gamemode.enable = true;
-  programs.gamescope.enable = true;
+  programs = {
+    gamemode.enable = true;
+    gamescope.enable = true;
+  };
 
   programs.steam = {
     enable = true;

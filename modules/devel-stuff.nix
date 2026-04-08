@@ -13,6 +13,5 @@
     gnumake
     cmake
     hyperfine
-    ghidra-bin
   ];
 }

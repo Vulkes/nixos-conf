@@ -65,6 +65,15 @@
     {device = "/dev/disk/by-uuid/7d0b48c0-2065-44a9-8bf2-afcfdaf3f9cf";}
   ];
 
+  services.smartd = {
+    enable = true;
+    devices = [
+      {
+        device = "/dev/disk/by-id/nvme-WD_BLACK_SN770_2TB_243144804306";
+      }
+    ];
+  };
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction

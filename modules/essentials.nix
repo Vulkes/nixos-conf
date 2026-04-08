@@ -50,7 +50,7 @@
 
     ungoogled-chromium
     thunderbird
-    helvum
+    qpwgraph
     easyeffects
     pwvucontrol
     networkmanagerapplet
