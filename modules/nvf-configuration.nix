@@ -75,16 +75,27 @@
           enableFormat = true;
           enableDAP = true;
 
+          assembly.enable = true;
+          lua.enable = true;
+          cmake.enable = true;
+          make.enable = true;
+          glsl.enable = true;
+          wgsl.enable = true;
+          css.enable = true;
+          html.enable = true;
+          json.enable = true;
+          yaml.enable = true;
+          tex.enable = true;
+
           nix = {
             enable = true;
+            lsp.servers = ["nixd" "nil"];
           };
 
           rust = {
             enable = true;
             treesitter.enable = true;
-            extensions.crates-nvim = {
-              enable = true;
-            };
+            extensions.crates-nvim.enable = true;
           };
 
           markdown = {
@@ -95,19 +106,6 @@
           clang = {
             enable = true;
             cHeader = true;
-          };
-
-          html = {
-            enable = true;
-            treesitter.enable = true;
-          };
-
-          lua = {
-            enable = true;
-          };
-
-          ts = {
-            enable = true;
           };
 
           python = {
