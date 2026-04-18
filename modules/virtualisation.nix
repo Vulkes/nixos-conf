@@ -2,12 +2,13 @@
   config,
   lib,
   pkgs,
+  userSettings,
   inputs,
   ...
 }: {
   programs.virt-manager.enable = true;
-  users.groups.libvirtd.members = ["yeff"];
-  users.users.yeff.extraGroups = ["docker"];
+  users.groups.libvirtd.members = [userSettings.username];
+  users.users."${userSettings.username}".extraGroups = ["docker"];
 
   virtualisation = {
     libvirtd = {

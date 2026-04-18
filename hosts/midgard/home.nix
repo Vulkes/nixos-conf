@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  userSettings,
   inputs,
   ...
 }: {
@@ -8,10 +9,10 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "hm-bak";
-    users.yeff = {
+    users."${userSettings.username}" = {
       home = {
-        username = "yeff";
-        homeDirectory = "/home/yeff";
+        inherit (userSettings) username;
+        homeDirectory = "/home/${userSettings.username}";
 
         stateVersion = "25.05";
 

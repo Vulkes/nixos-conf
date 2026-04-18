@@ -163,7 +163,7 @@
       wallpaper = {
         enabled = true;
         overviewEnabled = false;
-        directory = "/home/yeff/Pictures/walls";
+        directory = "${config.home.homeDirectory}/Pictures/walls";
         viewMode = "single";
         setWallpaperOnAllMonitors = true;
         fillMode = "crop";

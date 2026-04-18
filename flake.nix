@@ -27,10 +27,17 @@
     home-manager,
     stylix,
     ...
-  }: {
+  }: let
+    userSettings = {
+      username = "mel";
+    };
+  in {
     nixosConfigurations = {
       yggdrasil = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          inherit userSettings;
+        };
         modules = [
           inputs.nvf.nixosModules.default
           stylix.nixosModules.stylix
@@ -41,7 +48,10 @@
       };
 
       midgard = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          inherit userSettings;
+        };
         modules = [
           inputs.nvf.nixosModules.default
           stylix.nixosModules.stylix

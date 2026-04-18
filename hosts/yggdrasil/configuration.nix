@@ -5,6 +5,7 @@
   config,
   lib,
   pkgs,
+  userSettings,
   inputs,
   ...
 }: let
@@ -60,17 +61,12 @@ in {
   };
   time.timeZone = "Asia/Calcutta";
 
-  networking.wg-quick.interfaces.wg0.configFile = "/home/yeff/.wireguard/wg0.conf";
+  networking.wg-quick.interfaces.wg0.configFile = "${config.home.homeDirectory}/.wireguard/wg0.conf";
 
-  users.users.yeff = {
+  users.users."${userSettings.username}" = {
     isNormalUser = true;
     extraGroups = ["wheel" "libvirtd"];
   };
-
-  # home-manager = {
-  #   extraSpecialArgs = {inherit inputs;};
-  #   users = { "yeff" = import ./home.nix; };
-  # };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -96,7 +92,6 @@ in {
   # };
 
   # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
