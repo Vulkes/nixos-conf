@@ -4,8 +4,6 @@
   inputs,
   ...
 }: {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -30,6 +28,7 @@
       imports = [
         inputs.noctalia.homeModules.default
         ../../home-manager/alacritty.nix
+        ../../home-manager/rio.nix
         ../../home-manager/udisk.nix
         ../../home-manager/cava.nix
         ../../home-manager/noctalia.nix
