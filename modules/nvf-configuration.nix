@@ -44,9 +44,6 @@
 
         statusline.lualine.enable = true;
         telescope.enable = true;
-        treesitter = {
-          enable = true;
-        };
 
         autocomplete.nvim-cmp = {
           enable = true;
@@ -94,7 +91,6 @@
 
           rust = {
             enable = true;
-            treesitter.enable = true;
             extensions.crates-nvim.enable = true;
           };
 

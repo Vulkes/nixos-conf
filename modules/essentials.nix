@@ -45,6 +45,12 @@
         wlrobs
         obs-backgroundremoval
         obs-pipewire-audio-capture
+        obs-vaapi
+        obs-source-switcher
+        obs-vkcapture
+        obs-gstreamer
+        obs-mute-filter
+        obs-scale-to-sound
       ];
     })
 
