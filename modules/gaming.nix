@@ -19,9 +19,16 @@
         zulu8
       ];
     })
+
     vintagestory
 
     lumafly
+
+    (retroarch.withCores (cores:
+      with cores; [
+        beetle-psx-hw
+      ]))
+    ryubing
   ];
 
   programs = {
@@ -32,5 +39,8 @@
   programs.steam = {
     enable = true;
     localNetworkGameTransfers.openFirewall = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
   };
 }

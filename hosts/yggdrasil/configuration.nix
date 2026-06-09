@@ -33,12 +33,10 @@ in {
     ../../modules/gaming.nix
     ../../modules/desktop-env.nix
     ../../modules/emulation.nix
-    ../../modules/ai.nix
     ../../modules/security.nix
     ../../modules/virtualisation-default.nix
     ../../modules/virtualisation.nix
     ../../modules/themeing.nix
-    ../../modules/misc.nix
   ];
 
   boot.loader.grub = {
@@ -62,8 +60,6 @@ in {
     networkmanager.enable = true;
   };
   time.timeZone = "Asia/Calcutta";
-
-  networking.wg-quick.interfaces.wg0.configFile = "${config.home.homeDirectory}/.wireguard/wg0.conf";
 
   users.users."${userSettings.username}" = {
     isNormalUser = true;
@@ -98,11 +94,10 @@ in {
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [25565 8080];
+  networking.firewall.allowedUDPPorts = [25565];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-  networking.firewall.allowedTCPPorts = [8080];
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

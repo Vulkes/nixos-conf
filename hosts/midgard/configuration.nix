@@ -36,7 +36,6 @@ in {
     ../../modules/security.nix
     ../../modules/themeing.nix
     ../../modules/virtualisation.nix
-    ../../modules/misc.nix
   ];
 
   boot.loader = {

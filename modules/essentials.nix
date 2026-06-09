@@ -40,6 +40,7 @@
     spotify
     vesktop
     krita
+    orca-slicer
     (pkgs.wrapOBS {
       plugins = with pkgs.obs-studio-plugins; [
         wlrobs
