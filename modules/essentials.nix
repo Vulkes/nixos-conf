@@ -15,6 +15,8 @@
   services.blueman.enable = true;
   services.fwupd.enable = true;
 
+  services.gvfs.enable = true;
+
   programs.firefox.enable = true;
 
   services.mullvad-vpn = {
@@ -25,9 +27,9 @@
   services.flatpak.enable = true;
 
   environment.systemPackages = with pkgs; [
-    nemo-with-extensions
-    nemo-fileroller
-    nemo-preview
+    (nemo-with-extensions.override {
+      extensions = with pkgs; [nemo-preview nemo-seahorse];
+    })
     file-roller
     mpv
     xed-editor

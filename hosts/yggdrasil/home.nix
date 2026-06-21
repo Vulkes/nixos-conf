@@ -26,6 +26,14 @@
         createDirectories = true;
       };
 
+      dconf = {
+        settings = {
+          "org/cinnamon/desktop/applications/terminal" = {
+            exec = "alacritty";
+          };
+        };
+      };
+
       imports = [
         inputs.noctalia.homeModules.default
         ../../home-manager/alacritty.nix

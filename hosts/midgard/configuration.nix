@@ -61,8 +61,6 @@ in {
 
   nixpkgs.config.allowUnfree = true;
 
-  desktop.niri.enable = true;
-
   powerManagement.enable = true;
 
   services.tlp = {

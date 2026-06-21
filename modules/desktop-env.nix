@@ -4,14 +4,18 @@
   pkgs,
   ...
 }: {
-  imports = [
-    ./desktop-env/hyprland.nix
-    ./desktop-env/niri.nix
-  ];
+  security.polkit.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
-  services.displayManager.ly.enable = true;
+  programs.niri.enable = true;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  xdg.portal.config.niri = {
+    "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
+  };
+
+  services.displayManager.ly.enable = true;
 
   services.pipewire = {
     enable = true;
@@ -28,5 +32,6 @@
     mint-themes
     mint-y-icons
     nwg-look
+    xwayland-satellite
   ];
 }
