@@ -2,11 +2,9 @@
   config,
   pkgs,
   inputs,
-  stylix,
   ...
 }: {
   # import the home manager module
-  stylix.targets.noctalia-shell.enable = false;
   programs.noctalia-shell = {
     enable = true;
     settings = {

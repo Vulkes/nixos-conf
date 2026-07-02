@@ -11,12 +11,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix = {
-      url = "github:nix-community/stylix";
+
+    catppuccin = {
+      url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -25,7 +27,6 @@
     self,
     nixpkgs,
     home-manager,
-    stylix,
     ...
   }: let
     userSettings = {
@@ -40,7 +41,7 @@
         };
         modules = [
           inputs.nvf.nixosModules.default
-          stylix.nixosModules.stylix
+          inputs.catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           hosts/yggdrasil/home.nix
           hosts/yggdrasil/configuration.nix
@@ -54,7 +55,7 @@
         };
         modules = [
           inputs.nvf.nixosModules.default
-          stylix.nixosModules.stylix
+          inputs.catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           hosts/midgard/home.nix
           hosts/midgard/configuration.nix

@@ -2,11 +2,8 @@
   config,
   lib,
   pkgs,
-  stylix,
   ...
 }: {
-  stylix.targets.nvf.enable = false;
-
   programs.nvf = {
     enable = true;
     settings = {

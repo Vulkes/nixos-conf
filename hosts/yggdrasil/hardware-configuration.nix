@@ -11,20 +11,19 @@
   services.zfs.trim.enable = true;
   services.zfs.autoScrub.enable = true;
 
-  services.sanoid = {
-    enable = true;
-    templates.backup = {
-      hourly = 3;
-      daily = 3;
-      monthly = 2;
-      autosnap = true;
-      autoprune = true;
-    };
-
-    datasets."zpool/home" = {
-      useTemplate = ["backup"];
-    };
-  };
+  # services.sanoid = {
+  #   enable = true;
+  #   templates.backup = {
+  #     hourly = 3;
+  #     daily = 3;
+  #     monthly = 2;
+  #     autosnap = true;
+  #     autoprune = true;
+  #   };
+  #   datasets."zpool/home" = {
+  #     useTemplate = ["backup"];
+  #   };
+  # };
 
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")

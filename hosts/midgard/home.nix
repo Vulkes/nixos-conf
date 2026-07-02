@@ -35,6 +35,7 @@
       };
 
       imports = [
+        inputs.catppuccin.homeModules.catppuccin
         inputs.noctalia.homeModules.default
         ../../home-manager/alacritty.nix
         ../../home-manager/rio.nix
@@ -42,6 +43,13 @@
         ../../home-manager/cava.nix
         ../../home-manager/noctalia.nix
       ];
+
+      catppuccin = {
+        enable = true;
+        autoEnable = true;
+        accent = "lavender";
+        flavor = "mocha";
+      };
 
       services.polkit-gnome.enable = true;
       xdg.configFile."niri/config.kdl".source = ../../home-manager/config/niri/midgard.kdl;
