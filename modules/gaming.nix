@@ -5,11 +5,17 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    steam-tui
-
     mangohud
     protonup-ng
-    heroic
+    (heroic.override {
+      extraPkgs = pkgs':
+        with pkgs'; [
+          gamescope
+          gamemode
+        ];
+    })
+
+    r2modman
 
     (prismlauncher.override {
       jdks = [
@@ -33,11 +39,18 @@
 
   programs = {
     gamemode.enable = true;
-    gamescope.enable = true;
+    gamescope = {
+      enable = true;
+      enableWsi = true;
+      capSysNice = false;
+    };
   };
 
   programs.steam = {
     enable = true;
+    protontricks.enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
     extraCompatPackages = with pkgs; [
       proton-ge-bin

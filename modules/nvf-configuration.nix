@@ -14,6 +14,13 @@
           style = "mocha";
           transparent = true;
         };
+        ui = {
+          borders.globalStyle = "solid";
+          colorizer.enable = true;
+          modes-nvim.enable = true;
+          smartcolumn.enable = true;
+        };
+        utility.direnv.enable = true;
 
         augroups = [{name = "UserSetup";}];
         autocmds = [
@@ -40,15 +47,19 @@
         };
 
         statusline.lualine.enable = true;
-        telescope.enable = true;
+        telescope = {
+          enable = true;
+          mappings.buffers = "<leader><leader>";
+        };
 
-        autocomplete.nvim-cmp = {
+        autocomplete.blink-cmp = {
           enable = true;
           mappings = {
             confirm = "<C-y>";
             next = "<C-n>";
             previous = "<C-p>";
           };
+          setupOpts.signature.enabled = true;
         };
 
         binds = {
@@ -56,12 +67,15 @@
           cheatsheet.enable = true;
         };
 
+        git.enable = true;
+
         autopairs.nvim-autopairs.enable = true;
 
         lsp = {
           enable = true;
           formatOnSave = true;
           inlayHints.enable = true;
+          trouble.enable = true;
         };
 
         languages = {
@@ -70,6 +84,7 @@
           enableDAP = true;
 
           assembly.enable = true;
+          bash.enable = true;
           lua.enable = true;
           cmake.enable = true;
           make.enable = true;
@@ -79,6 +94,7 @@
           html.enable = true;
           json.enable = true;
           yaml.enable = true;
+          toml.enable = true;
           tex.enable = true;
 
           nix = {
@@ -88,7 +104,10 @@
 
           rust = {
             enable = true;
+            lsp.enable = false;
+            dap.enable = false;
             extensions.crates-nvim.enable = true;
+            extensions.rustaceanvim.enable = true;
           };
 
           markdown = {
@@ -110,6 +129,9 @@
             lsp.servers = ["ty"];
           };
         };
+
+        notes.todo-comments.enable = true;
+        notify.nvim-notify.enable = true;
       };
     };
   };

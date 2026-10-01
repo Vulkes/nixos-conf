@@ -36,6 +36,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    bat
+    fd
     eza
     fzf
     fishPlugins.done

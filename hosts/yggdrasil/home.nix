@@ -4,7 +4,9 @@
   userSettings,
   inputs,
   ...
-}: {
+}: let
+  kenku = pkgs.callPackage ../../home-manager/kenku-fm.nix {inherit pkgs;};
+in {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -42,6 +44,7 @@
         ../../home-manager/udisk.nix
         ../../home-manager/cava.nix
         ../../home-manager/noctalia.nix
+        # ../../home-manager/steam.nix
       ];
 
       catppuccin = {
@@ -55,6 +58,10 @@
       xdg.configFile."niri/config.kdl".source = ../../home-manager/config/niri/yggdrasil.kdl;
 
       programs.home-manager.enable = true;
+
+      home.packages = [
+        kenku
+      ];
     };
   };
 }

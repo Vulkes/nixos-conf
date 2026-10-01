@@ -2,12 +2,15 @@
   config,
   lib,
   pkgs,
+  pkgs-old,
   ...
 }: {
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
   programs.niri.enable = true;
+  services.desktopManager.cosmic.enable = true;
+  programs.mango.enable = true;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -32,6 +35,6 @@
     mint-themes
     mint-y-icons
     nwg-look
-    xwayland-satellite
+    pkgs-old.xwayland-satellite
   ];
 }

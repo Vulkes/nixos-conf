@@ -21,10 +21,23 @@
 
   services.mullvad-vpn = {
     enable = true;
-    package = pkgs.mullvad-vpn;
+    gui.enable = true;
   };
 
   services.flatpak.enable = true;
+  programs.winbox.enable = true;
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+      obs-vaapi #optional AMD hardware acceleration
+      obs-gstreamer
+      obs-vkcapture
+    ];
+  };
 
   environment.systemPackages = with pkgs; [
     (nemo-with-extensions.override {
@@ -43,19 +56,6 @@
     vesktop
     krita
     orca-slicer
-    (pkgs.wrapOBS {
-      plugins = with pkgs.obs-studio-plugins; [
-        wlrobs
-        obs-backgroundremoval
-        obs-pipewire-audio-capture
-        obs-vaapi
-        obs-source-switcher
-        obs-vkcapture
-        obs-gstreamer
-        obs-mute-filter
-        obs-scale-to-sound
-      ];
-    })
 
     ungoogled-chromium
     thunderbird
