@@ -38,14 +38,16 @@ in {
 
       imports = [
         inputs.catppuccin.homeModules.catppuccin
-        inputs.noctalia.homeModules.default
+        inputs.mangowm.hmModules.mango
         ../../home-manager/alacritty.nix
-        ../../home-manager/rio.nix
         ../../home-manager/udisk.nix
-        ../../home-manager/cava.nix
-        ../../home-manager/noctalia.nix
-        # ../../home-manager/steam.nix
+        ../../home-manager/mango.nix
       ];
+
+      programs.noctalia = {
+        enable = true;
+        settings = ../../home-manager/noctalia.toml;
+      };
 
       catppuccin = {
         enable = true;
@@ -53,9 +55,6 @@ in {
         accent = "lavender";
         flavor = "mocha";
       };
-
-      services.polkit-gnome.enable = true;
-      xdg.configFile."niri/config.kdl".source = ../../home-manager/config/niri/yggdrasil.kdl;
 
       programs.home-manager.enable = true;
 

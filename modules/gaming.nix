@@ -17,14 +17,7 @@
 
     r2modman
 
-    (prismlauncher.override {
-      jdks = [
-        zulu25
-        zulu21
-        zulu17
-        zulu8
-      ];
-    })
+    prismlauncher
 
     vintagestory
 

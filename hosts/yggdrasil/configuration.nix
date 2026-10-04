@@ -34,8 +34,8 @@ in {
     ../../modules/desktop-env.nix
     ../../modules/emulation.nix
     ../../modules/security.nix
-    # ../../modules/virtualisation-default.nix
-    # ../../modules/virtualisation.nix
+    ../../modules/virtualisation-default.nix
+    ../../modules/virtualisation.nix
     ../../modules/themeing.nix
     ../../modules/printing.nix
   ];
